@@ -30,7 +30,7 @@ int main(void) {
     exit(EXIT_SUCCESS);
 
     }
-    else  {
+    else if(pid >0){
      wait(NULL);
     parentTask();
        
