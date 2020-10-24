@@ -38,7 +38,7 @@ int main(void) {
       else {
     printf("Unable to create child process.");
     }
- 
+ } 
     return EXIT_SUCCESS;
 
   }
