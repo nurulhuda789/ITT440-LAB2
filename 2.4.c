@@ -34,11 +34,12 @@ int main(void) {
       else {
     printf("Unable to create child process.");
     }
-  } 
+   
   
   if(pid>0){
     parentTask();
    }
+ }
     return EXIT_SUCCESS;
 
   }
