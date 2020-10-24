@@ -16,7 +16,7 @@ void childTask()
 
 void parentTask() {
   
-  printf("\nJob is done");
+  printf("\nJob is done\n");
 }
 
 int main(void) {
