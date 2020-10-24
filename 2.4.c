@@ -7,21 +7,21 @@
 void childTask()
 {
  char name[10];
- 
+ for(int i = 1; i < 5; i++) {
  printf("\nEnter Name : ");
  scanf("%s",&name);
  printf("\n Name : %s\n ",name);
-
+ }
 }
 
 void parentTask() {
   
-  printf("Job is done");
+  printf("\nJob is done");
 }
 
 int main(void) {
   char name[10];
-  for(int i = 0; i <4; i++) {
+  
     pid_t pid = fork();
     
  
@@ -30,16 +30,18 @@ int main(void) {
     exit(EXIT_SUCCESS);
 
     }
+      else if(pid > 0) {
+    wait(NULL);
+    parentTask();
+
     
       else {
     printf("Unable to create child process.");
     }
    
   
-  if(pid>0){
-    parentTask();
-   }
- }
+  
+ 
     return EXIT_SUCCESS;
 
   }
