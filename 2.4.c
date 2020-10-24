@@ -30,15 +30,15 @@ int main(void) {
     exit(EXIT_SUCCESS);
 
     }
-    else if(pid >0){
-     wait(NULL);
-    parentTask();
-       
-    }
+    
       else {
     printf("Unable to create child process.");
     }
- } 
+  } 
+  
+  if(pid>0){
+    parentTask();
+   }
     return EXIT_SUCCESS;
 
   }
