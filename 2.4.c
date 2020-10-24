@@ -3,7 +3,22 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+
+void childTask()
+{
+ char name[10];
  
+ printf("\nEnter Name : ");
+ scanf("%s",&name);
+ printf("\n Name : %s\n ",name);
+
+}
+
+void parentTask() {
+  
+  printf("Job is done");
+}
+
 int main(void) {
   char name[10];
   for(int i = 0; i <4; i++) {
@@ -11,19 +26,21 @@ int main(void) {
     
  
     if(pid == 0) {
-      printf("Child process >> PPID=%d, PID=%d\n", getppid(), getpid());
-      printf("\nEnter Name : ");
-      scanf("%s",&name);
-      printf("\n Name :%s\n ",name);
-      exit(0);
+    childTask();
+    exit(EXIT_SUCCESS);
+
     }
     else  {
-      printf("Parent process >> PID=%d\n", getpid());
-      printf("Waiting for child processes to finish...\n");
-      wait(NULL);
-      printf("Job is done.\n");
+     wait(NULL);
+    parentTask();
+       
     }
+      else {
+    printf("Unable to create child process.");
+    }
+ 
+    return EXIT_SUCCESS;
+
   }
  
-  return EXIT_SUCCESS;
-}
+  
