@@ -33,7 +33,7 @@ int main(void) {
       else if(pid > 0) {
     wait(NULL);
     parentTask();
-
+   }
     
       else {
     printf("Unable to create child process.");
